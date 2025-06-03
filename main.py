@@ -1,4 +1,6 @@
+import pokemon
 
+print(pokemon)
 print("""
                                  ,'\ 
     _.----.        ____         ,'  _\   ___    ___     ____ 
@@ -13,10 +15,22 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
         \_.-'       |__|    `-._ |              '-.|     '-.| |   | 
                                 `'                            '-._| """)
 def main():
-   print("Single Player - S | Multiplayer - M |Buy cards (Pokéball) - B | Card inventory - C ")
+   menu = input("Single Player - S | Multiplayer - M |Buy cards (Pokéball) - B | Card inventory - C ")
+
+
+#def Single_Player:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 main()
-
-
-# testing
-
-#testing
