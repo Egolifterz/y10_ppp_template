@@ -1,6 +1,7 @@
 import pokemon
+import random
 
-print(pokemon)
+
 print("""
                                  ,'\ 
     _.----.        ____         ,'  _\   ___    ___     ____ 
@@ -18,19 +19,38 @@ def main():
    menu = input("Single Player - S | Multiplayer - M |Buy cards (Pokéball) - B | Card inventory - C ")
 
 
-#def Single_Player:
+
+def choice():
+   choice = input("Choose ur pokemon (Pikachu): ").lower()
+   print(f"You have chosen {choice}")
+   if choice == "pikachu":
+
+
+def user_pokemon_stats(Health , Energy , ):
+   print()
 
 
 
 
-
-
-
-
-
+   
 
 
 
 
 
 main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
