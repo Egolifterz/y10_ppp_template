@@ -25,10 +25,17 @@ def DisplayMenu():
     print("B Buy cards")
     print()
 
-
 def InputChoose_Pokemon():
    Choose_Pokemon = input("Please Choose your Pokemon (Pikachu): ")
    return Choose_Pokemon
+
+
+def Single_player():
+   if InputChoose_Pokemon == "Pikachu":
+      Health = 100
+      
+       
+
 
 def Main():
 
@@ -38,10 +45,11 @@ def Main():
         DisplayMenu()
         MenuOption = input("Enter Option > ").upper()
         if MenuOption == "C":
-            InputChoose_Pokemon = Choose_Pokemon()
+            Choose_Pokemon = InputChoose_Pokemon()
+      
+Main()
       
 
-      
 
 
 
