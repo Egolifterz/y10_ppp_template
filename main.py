@@ -15,19 +15,36 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
        \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   | 
         \_.-'       |__|    `-._ |              '-.|     '-.| |   | 
                                 `'                            '-._| """)
-def main():
-   menu = input("Single Player - S | Multiplayer - M |Buy cards (Pokéball) - B | Card inventory - C ")
+
+
+def DisplayMenu():
+    print()
+    print("C Choose Pokemon")
+    print("S Single Player")
+    print("M Multiplayer")
+    print("B Buy cards")
+    print()
+
+
+def InputChoose_Pokemon():
+   Choose_Pokemon = input("Please Choose your Pokemon (Pikachu): ")
+   return Choose_Pokemon
+
+def Main():
+
+    MenuOption = ""  
+
+    while MenuOption != "Q":
+        DisplayMenu()
+        MenuOption = input("Enter Option > ").upper()
+        if MenuOption == "C":
+            InputChoose_Pokemon = Choose_Pokemon()
+      
+
+      
 
 
 
-def choice():
-   choice = input("Choose ur pokemon (Pikachu): ").lower()
-   print(f"You have chosen {choice}")
-   if choice == "pikachu":
-
-
-def user_pokemon_stats(Health , Energy , ):
-   print()
 
 
 
