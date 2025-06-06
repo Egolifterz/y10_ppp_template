@@ -29,11 +29,27 @@ def InputChoose_Pokemon():
    Choose_Pokemon = input("Please Choose your Pokemon (Pikachu): ")
    return Choose_Pokemon
 
+def rival():
+   bad_guy = "Pikachu"
+   Health = 100
+   Energy = 3
+   Attack = 20
+   Sleep = 2
+
 
 def Single_player():
    if InputChoose_Pokemon == "Pikachu":
       Health = 100
-      
+      Energy = 3
+      Attack = 20
+      Sleep = 2
+      while Health > 0:
+         print("Your rival is {}".format(rival))
+         Action = input("What do you want to do")
+         if Action == "Attack":
+            rival.health -= 20
+         
+          
        
 
 
@@ -46,6 +62,9 @@ def Main():
         MenuOption = input("Enter Option > ").upper()
         if MenuOption == "C":
             Choose_Pokemon = InputChoose_Pokemon()
+        elif MenuOption == "S":
+           Single_player()
+            
       
 Main()
       
@@ -61,9 +80,6 @@ Main()
 
 
 
-
-
-main()
 
 
 
