@@ -23,75 +23,80 @@ def DisplayMenu():
     print("S Single Player")
     print("M Multiplayer")
     print("B Buy cards")
+    print("Q Quit")
     print()
 
 def InputChoose_Pokemon():
-   Choose_Pokemon = input("Please Choose your Pokemon (Pikachu): ")
-   return Choose_Pokemon
+    choose_pokemon = input("Please Choose your Pokemon (Pikachu): ")
+    return choose_pokemon
 
-def rival():
-   bad_guy = "Pikachu"
-   Health = 100
-   Energy = 3
-   Attack = 20
-   Sleep = 2
+def get_rival():
+    return {
+        "name": "Isagi",
+        "health": 100,
+        "energy": 3,
+        "attack": 20,
+        "sleep": 2
+    }
 
+def get_player(pokemon_name):
+ 
+    if pokemon_name.lower() == "pikachu":
+        return {
+            "name": "Pikachu",
+            "health": 100,
+            "energy": 3,
+            "attack": 20,
+            "gnaw": 60,
+            "sleep": 2
+        }
+    else:
+        print("Unknown Pokemon, defaulting to Pikachu.")
+        return {
+            "name": "Pikachu",
+            "health": 100,
+            "energy": 3,
+            "attack": 20,
+            "gnaw": 60,
+            "sleep": 2
+        }
 
-def Single_player():
-   if InputChoose_Pokemon == "Pikachu":
-      Health = 100
-      Energy = 3
-      Attack = 20
-      Sleep = 2
-      while Health > 0:
-         print("Your rival is {}".format(rival))
-         Action = input("What do you want to do")
-         if Action == "Attack":
-            rival.health -= 20
-         
-          
-       
-
+def Single_player(chosen_pokemon):
+    player = get_player(chosen_pokemon)
+    rival = get_rival()
+    print(f"Your rival is {rival['name']}!")
+    while player["health"] > 0 and rival["health"] > 0:
+        print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
+        action = input("What do you want to do? (attack/gnaw/sleep): ").strip().lower()
+        if action == "attack":
+            rival["health"] -= player["attack"]
+            print(f"You attacked! Rival's health is now {rival['health']}")
+        elif action == "sleep":
+            print("Why'd sleep you lazy bum?")
+        elif action == "gnaw":
+            rival["health"] -= player["gnaw"]
+            print(f"You attacked! Rival's health is now {rival['health']}")
+        else:
+            print("Unknown action.")
+        if rival["health"] > 0:
+            player["health"] -= rival["attack"]
+            print(f"Isagi uses direct shot! Your health is now {player['health']}")
+    if player["health"] > 0:
+        print("You win!")
+    else:
+        print("You lost!")
 
 def Main():
-
-    MenuOption = ""  
-
-    while MenuOption != "Q":
+    menu_option = ""
+    chosen_pokemon = "Pikachu"  # Default
+    while menu_option != "Q":
         DisplayMenu()
-        MenuOption = input("Enter Option > ").upper()
-        if MenuOption == "C":
-            Choose_Pokemon = InputChoose_Pokemon()
-        elif MenuOption == "S":
-           Single_player()
-            
-      
+        menu_option = input("Enter Option > ").upper()
+        if menu_option == "C":
+            chosen_pokemon = InputChoose_Pokemon()
+        elif menu_option == "S":
+            Single_player(chosen_pokemon)
+        elif menu_option == "Q":
+            print("Goodbye!")
+
 Main()
-      
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
