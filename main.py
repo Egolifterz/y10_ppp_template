@@ -67,7 +67,7 @@ def Single_player(chosen_pokemon):
     print(f"Your rival is {rival['name']}!")
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
-        action = input("What do you want to do? (attack🗡️/gnaw⚡/sleep😴): ").strip().lower()
+        action = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
         if action == "attack":
             rival["health"] -= player["attack"]
             print(f"You attacked! Rival's health is now {rival['health']}")
