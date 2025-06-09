@@ -32,8 +32,8 @@ def InputChoose_Pokemon():
 
 def get_rival():
     return {
-        "name": "Isagi",
-        "health": 100,
+        "name": "Charmander",
+        "health": 230,
         "energy": 3,
         "attack": 20,
         "sleep": 2
@@ -67,7 +67,7 @@ def Single_player(chosen_pokemon):
     print(f"Your rival is {rival['name']}!")
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
-        action = input("What do you want to do? (attack/gnaw/sleep): ").strip().lower()
+        action = input("What do you want to do? (attack🗡️/gnaw/sleep): ").strip().lower()
         if action == "attack":
             rival["health"] -= player["attack"]
             print(f"You attacked! Rival's health is now {rival['health']}")
@@ -80,11 +80,16 @@ def Single_player(chosen_pokemon):
             print("Unknown action.")
         if rival["health"] > 0:
             player["health"] -= rival["attack"]
-            print(f"Isagi uses direct shot! Your health is now {player['health']}")
+            print(f"Charmander attacks! Your health is now {player['health']}")
     if player["health"] > 0:
         print("You win!")
     else:
         print("You lost!")
+
+
+    def Multiplayer():
+        player = get_player(chosen_pokemon)
+        
 
 def Main():
     menu_option = ""
