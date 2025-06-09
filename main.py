@@ -60,6 +60,30 @@ def get_player(pokemon_name):
             "gnaw": 60,
             "sleep": 2
         }
+    
+
+
+def get_player2(pokemon_name2):
+ 
+    if pokemon_name2.lower() == "pikachu":
+        return {
+            "name": "Pikachu",
+            "health": 100,
+            "energy": 3,
+            "attack": 20,
+            "gnaw": 60,
+            "sleep": 2
+        }
+    else:
+        print("Unknown Pokemon, defaulting to Pikachu.")
+        return {
+            "name": "Pikachu",
+            "health": 100,
+            "energy": 3,
+            "attack": 20,
+            "gnaw": 60,
+            "sleep": 2
+        }
 
 def Single_player(chosen_pokemon):
     player = get_player(chosen_pokemon)
@@ -89,6 +113,7 @@ def Single_player(chosen_pokemon):
 
     def Multiplayer():
         player = get_player(chosen_pokemon)
+        player2 = get_player2(chosen_pokemon)
         
 
 def Main():
