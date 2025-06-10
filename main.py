@@ -180,7 +180,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
             turn -= 1
 
 
-    if player["health"] > 0:
+    if player2["health"] <= 0:
         print("You win!")
     else:
         print("You lost!")
