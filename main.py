@@ -19,7 +19,7 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
 
 def DisplayMenu():
     print()
-    print("C Choose Pokemon")
+    print("1 Choose First Pokemon")
     print("2 Choose Second Pokemon")
     print("S Single Player")
     print("M Multiplayer")
@@ -211,7 +211,7 @@ def Main():
     while menu_option != "Q":
         DisplayMenu()
         menu_option = input("Enter Option > ").upper()
-        if menu_option == "C":
+        if menu_option == "1":
             chosen_pokemon = InputChoose_Pokemon()
         elif menu_option == "2":
             chosen_pokemon2 = InputChoose_Pokemon2()
