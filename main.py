@@ -97,7 +97,7 @@ def Single_player(chosen_pokemon):
             print(f"You attacked! Rival's health is now {rival['health']}")
         elif action == "sleep":
             print("Why'd sleep you lazy bum?")
-        elif action == "gnaw" and "energy" > 0:
+        elif action == "gnaw":
             rival["health"] -= player["gnaw"]
             player["energy"] -= 1
             print(f"You attacked! Rival's health is now {rival['health']}")
