@@ -97,11 +97,14 @@ def Single_player(chosen_pokemon):
             print(f"You attacked! Rival's health is now {rival['health']}")
         elif action == "sleep":
             print("Why'd sleep you lazy bum?")
-        elif action == "gnaw" and "energy" in get_player > 0:
-            rival["health"] -= player["gnaw"]
-            player["energy"] -= 1
-            print(f"You attacked! Rival's health is now {rival['health']}")
-            print(f"You used energy! Your energy is now {player['energy']}")
+        elif action == "gnaw":
+            if "energy" in get_player > 0:
+                rival["health"] -= player["gnaw"]
+                player["energy"] -= 1
+                print(f"You attacked! Rival's health is now {rival['health']}")
+                print(f"You used energy! Your energy is now {player['energy']}")
+            else:
+                print("Not enough energy")
         else:
             print("Unknown action.")
         if rival["health"] > 0:
