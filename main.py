@@ -96,7 +96,9 @@ def Single_player(chosen_pokemon):
             rival["health"] -= player["attack"]
             print(f"You attacked! Rival's health is now {rival['health']}")
         elif action == "sleep":
-            print("Why'd sleep you lazy bum?")
+            print("Gained energy for sleeping")
+            player["energy"] += player["sleep"]
+            print(f"You slept! Your energy is now {player['energy']}")
         elif action == "gnaw":
             if player["energy"] > 0:  # Fixed the condition to check player's energy
                 rival["health"] -= player["gnaw"]
