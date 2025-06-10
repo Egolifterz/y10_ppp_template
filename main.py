@@ -148,7 +148,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
         else:
             ("Unknown Action.")
 
-        if player2["health"] > 0:
+        while player2["health"] > 0:
             action2 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player2["health"] -= player["attack"]
