@@ -149,20 +149,20 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
             ("Unknown Action.")
 
         while player2["health"] > 0:
-            action2 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
+            action2 = input("What do you want to do, Player 2? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player2["health"] -= player["attack"]
-                print(f"You attacked! Player 2's health is now {player2['health']}")
-            elif action1 == "sleep":
-                print("Gained energy for sleeping")
-                player["energy"] += player["sleep"]
-                print(f"You slept! Your energy is now {player['energy']}")
-            elif action1 == "gnaw":
-                if player["energy"] > 0:  # Fixed the condition to check player's energy
-                    player2["health"] -= player["gnaw"]
-                    player["energy"] -= 1
-                    print(f"You attacked! Rival's health is now {player2['health']}")
-                    print(f"You used energy! Your energy is now {player['energy']}")
+                print(f"You attacked! Player 1's health is now {player['health']}")
+            elif action2 == "sleep":
+                print("Gained energy for sleeping, Player 2")
+                player["energy"] += player2["sleep"]
+                print(f"You slept! Your energy is now {player2['energy']}")
+            elif action2 == "gnaw":
+                if player2["energy"] > 0:  # Fixed the condition to check player's energy
+                    player["health"] -= player2["gnaw"]
+                    player2["energy"] -= 1
+                    print(f"You attacked! Player 1's health is now {player['health']}")
+                    print(f"You used energy! Your energy is now {player2['energy']}")
             else:
                 print("Not enough energy")
         else:
