@@ -130,6 +130,49 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
     while player["health"] > 0 and player2["health"] > 0:
         print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
         action1 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
+        if action1 == "attack":
+            player2["health"] -= player["attack"]
+            print(f"You attacked! Player 2's health is now {player2['health']}")
+        elif action1 == "sleep":
+            print("Gained energy for sleeping")
+            player["energy"] += player["sleep"]
+            print(f"You slept! Your energy is now {player['energy']}")
+        elif action1 == "gnaw":
+            if player["energy"] > 0:  # Fixed the condition to check player's energy
+                player2["health"] -= player["gnaw"]
+                player["energy"] -= 1
+                print(f"You attacked! Rival's health is now {player2['health']}")
+                print(f"You used energy! Your energy is now {player['energy']}")
+            else:
+                print("Not enough energy")
+        else:
+            ("Unknown Action.")
+
+        if player2["health"] > 0:
+            action2 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
+            if action2 == "attack":
+                player2["health"] -= player["attack"]
+                print(f"You attacked! Player 2's health is now {player2['health']}")
+            elif action1 == "sleep":
+                print("Gained energy for sleeping")
+                player["energy"] += player["sleep"]
+                print(f"You slept! Your energy is now {player['energy']}")
+            elif action1 == "gnaw":
+                if player["energy"] > 0:  # Fixed the condition to check player's energy
+                    player2["health"] -= player["gnaw"]
+                    player["energy"] -= 1
+                    print(f"You attacked! Rival's health is now {player2['health']}")
+                    print(f"You used energy! Your energy is now {player['energy']}")
+            else:
+                print("Not enough energy")
+        else:
+            ("Unknown Action.")
+
+
+    if player["health"] > 0:
+        print("You win!")
+    else:
+        print("You lost!")
         
         
 
