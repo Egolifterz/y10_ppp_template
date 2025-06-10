@@ -198,6 +198,7 @@ def buy_cards():
         purchase = input("would you like to buy a card (Y/N)")
         if purchase == "Y":
             print(x)
+            buy += 1
         if purchase == "N":
             print("damn...")
             Main()
