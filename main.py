@@ -200,6 +200,7 @@ def buy_cards():
             print(x)
         if purchase == "N":
             print("damn...")
+            Main()
         
         
 
