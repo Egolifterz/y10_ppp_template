@@ -188,7 +188,18 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
 
 
 def buy_cards():
-    print("WIP")
+    
+
+    Gatcha = ["Pikachu - Common", "Charmander - Rare", "Isagi - Ultra Rare", "Chigiri - Legendary"]
+    print(Gatcha)
+    x = random.choice(Gatcha)
+    buy = 0
+    while buy == 0:
+        purchase = input("would you like to buy a card (Y/N)")
+        if purchase == "Y":
+            print(x)
+        if purchase == "N":
+            print("damn...")
         
         
 
@@ -207,7 +218,7 @@ def Main():
         elif menu_option == "M":
             Multiplayer(chosen_pokemon, chosen_pokemon2)
         elif menu_option == "B":
-            print("Work In Progress")
+            buy_cards()
         elif menu_option == "Q":
             print("Goodbye!")
 
