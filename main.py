@@ -185,6 +185,10 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
         print("Player 1 wins")
     else:
         print("Player 2 wins")
+
+
+def buy_cards():
+    print("WIP")
         
         
 
@@ -202,6 +206,8 @@ def Main():
             Single_player(chosen_pokemon)
         elif menu_option == "M":
             Multiplayer(chosen_pokemon, chosen_pokemon2)
+        elif menu_option == "B":
+            print("Work In Progress")
         elif menu_option == "Q":
             print("Goodbye!")
 
