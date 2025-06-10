@@ -124,9 +124,11 @@ def Single_player(chosen_pokemon):
         print("You lost!")
 
 
-    def Multiplayer():
-        player = get_player(chosen_pokemon)
-        player2 = get_player2(chosen_pokemon)
+def Multiplayer(chosen_pokemon, chosen_pokemon2):
+    player = get_player(chosen_pokemon)
+    player2 = get_player2(chosen_pokemon2)
+    print(f"Player 1 has chosen {player["name"]} as their Pokemon")
+    print(f"Player 2 has chosen {player2["name"]} as their Pokemon")
         
 
 def Main():
@@ -141,6 +143,8 @@ def Main():
             chosen_pokemon2 = InputChoose_Pokemon2()
         elif menu_option == "S":
             Single_player(chosen_pokemon)
+        elif menu_option == "M":
+            Multiplayer(chosen_pokemon, chosen_pokemon2)
         elif menu_option == "Q":
             print("Goodbye!")
 
