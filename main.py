@@ -129,7 +129,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
     player2 = get_player2(chosen_pokemon2)
     turn = 1
     while player["health"] > 0 and player2["health"] > 0:
-        while player["health"] > 0 and turn == 1:
+        if player["health"] > 0 and turn == 1:
             print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
             action1 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
             if action1 == "attack":
@@ -155,7 +155,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
             ("Unknown Action.")
             turn += 1
 
-        while player2["health"] > 0 and turn == 2:
+        if player2["health"] > 0 and turn == 2:
             action2 = input("What do you want to do, Player 2? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player["health"] -= player2["attack"]
