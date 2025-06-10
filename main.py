@@ -127,8 +127,10 @@ def Single_player(chosen_pokemon):
 def Multiplayer(chosen_pokemon, chosen_pokemon2):
     player = get_player(chosen_pokemon)
     player2 = get_player2(chosen_pokemon2)
-    print(f"Player 1 has chosen {player["name"]} as their Pokemon")
-    print(f"Player 2 has chosen {player2["name"]} as their Pokemon")
+    while player["health"] > 0 and player2["health"] > 0:
+        print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
+        action1 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
+        
         
 
 def Main():
