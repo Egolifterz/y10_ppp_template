@@ -20,6 +20,7 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
 def DisplayMenu():
     print()
     print("C Choose Pokemon")
+    print("2 Choose Second Pokemon")
     print("S Single Player")
     print("M Multiplayer")
     print("B Buy cards")
@@ -29,6 +30,10 @@ def DisplayMenu():
 def InputChoose_Pokemon():
     choose_pokemon = input("Please Choose your Pokemon (Pikachu): ")
     return choose_pokemon
+
+def InputChoose_Pokemon2():
+    choose_pokemon2 = input("Please Choose your Pokemon (Pikachu): ")
+    return choose_pokemon2
 
 def get_rival():
     return {
@@ -132,6 +137,8 @@ def Main():
         menu_option = input("Enter Option > ").upper()
         if menu_option == "C":
             chosen_pokemon = InputChoose_Pokemon()
+        elif menu_option == "2":
+            chosen_pokemon2 = InputChoose_Pokemon2()
         elif menu_option == "S":
             Single_player(chosen_pokemon)
         elif menu_option == "Q":
