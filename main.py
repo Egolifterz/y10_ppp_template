@@ -61,8 +61,6 @@ def get_player(pokemon_name):
             "sleep": 2
         }
     
-
-
 def get_player2(pokemon_name2):
  
     if pokemon_name2.lower() == "pikachu":
@@ -70,7 +68,7 @@ def get_player2(pokemon_name2):
             "name": "Pikachu",
             "health": 100,
             "energy": 3,
-            "attack": 20,
+            "attack": 30,
             "gnaw": 60,
             "sleep": 2
         }
@@ -84,6 +82,8 @@ def get_player2(pokemon_name2):
             "gnaw": 60,
             "sleep": 2
         }
+    
+
 
 def Single_player(chosen_pokemon):
     player = get_player(chosen_pokemon)
