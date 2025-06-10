@@ -127,46 +127,57 @@ def Single_player(chosen_pokemon):
 def Multiplayer(chosen_pokemon, chosen_pokemon2):
     player = get_player(chosen_pokemon)
     player2 = get_player2(chosen_pokemon2)
-    while player["health"] > 0 and player2["health"] > 0:
+    turn = 1
+    while player["health"] > 0 and turn == 1 and player2["health"] > 0:
         print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
         action1 = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
         if action1 == "attack":
             player2["health"] -= player["attack"]
             print(f"You attacked! Player 2's health is now {player2['health']}")
+            turn +=1
         elif action1 == "sleep":
             print("Gained energy for sleeping")
             player["energy"] += player["sleep"]
             print(f"You slept! Your energy is now {player['energy']}")
+            turn += 1
         elif action1 == "gnaw":
             if player["energy"] > 0:  # Fixed the condition to check player's energy
                 player2["health"] -= player["gnaw"]
                 player["energy"] -= 1
                 print(f"You attacked! Rival's health is now {player2['health']}")
                 print(f"You used energy! Your energy is now {player['energy']}")
+                turn +=1
             else:
                 print("Not enough energy")
+                turn += 1
         else:
             ("Unknown Action.")
+            turn += 1
 
-        while player2["health"] > 0:
+        while player2["health"] > 0 and turn == 2:
             action2 = input("What do you want to do, Player 2? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player2["health"] -= player["attack"]
                 print(f"You attacked! Player 1's health is now {player['health']}")
+                turn -= 1
             elif action2 == "sleep":
                 print("Gained energy for sleeping, Player 2")
                 player["energy"] += player2["sleep"]
                 print(f"You slept! Your energy is now {player2['energy']}")
+                turn -= 1
             elif action2 == "gnaw":
                 if player2["energy"] > 0:  # Fixed the condition to check player's energy
                     player["health"] -= player2["gnaw"]
                     player2["energy"] -= 1
                     print(f"You attacked! Player 1's health is now {player['health']}")
                     print(f"You used energy! Your energy is now {player2['energy']}")
+                    turn -= 1
             else:
                 print("Not enough energy")
+                turn -= 1
         else:
             ("Unknown Action.")
+            turn -= 1
 
 
     if player["health"] > 0:
