@@ -46,7 +46,7 @@ def get_player(pokemon_name):
             "name": "Pikachu",
             "health": 100,
             "energy": 3,
-            "attack": 20,
+            "attack": 30,
             "gnaw": 60,
             "sleep": 2
         }
@@ -97,9 +97,11 @@ def Single_player(chosen_pokemon):
             print(f"You attacked! Rival's health is now {rival['health']}")
         elif action == "sleep":
             print("Why'd sleep you lazy bum?")
-        elif action == "gnaw":
+        elif action == "gnaw" and "energy" > 0:
             rival["health"] -= player["gnaw"]
+            player["energy"] -= 1
             print(f"You attacked! Rival's health is now {rival['health']}")
+            print(f"You used energy! Your energy is now {player['energy']}")
         else:
             print("Unknown action.")
         if rival["health"] > 0:
