@@ -21,6 +21,7 @@ def DisplayMenu():
     print()
     print("1 Choose First Pokemon")
     print("2 Choose Second Pokemon")
+    print("3 Choose Trainer (Buffs)")
     print("S Single Player")
     print("M Multiplayer")
     print("B Buy cards")
@@ -35,12 +36,16 @@ def InputChoose_Pokemon2():
     choose_pokemon2 = input("Please Choose your Pokemon (Pikachu): ")
     return choose_pokemon2
 
+def InputChoose_trainer():
+    choose_trainer = input("Please choose your trainer (Irida)")
+    return choose_trainer
+
 def get_rival():
     return {
         "name": "Charmander",
-        "health": 230,
+        "health": 50,
         "energy": 3,
-        "attack": 20,
+        "attack": 30,
         "sleep": 2
     }
 
@@ -49,20 +54,20 @@ def get_player(pokemon_name):
     if pokemon_name.lower() == "pikachu":
         return {
             "name": "Pikachu",
-            "health": 100,
-            "energy": 3,
-            "attack": 30,
-            "gnaw": 60,
+            "health": 40,
+            "energy": 2,
+            "attack": 10,
+            "gnaw": 30,
             "sleep": 2
         }
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
             "name": "Pikachu",
-            "health": 100,
-            "energy": 3,
-            "attack": 20,
-            "gnaw": 60,
+            "health": 40,
+            "energy": 2,
+            "attack": 10,
+            "gnaw": 30,
             "sleep": 2
         }
     
@@ -71,32 +76,46 @@ def get_player2(pokemon_name2):
     if pokemon_name2.lower() == "pikachu":
         return {
             "name": "Pikachu",
-            "health": 100,
-            "energy": 3,
-            "attack": 30,
-            "gnaw": 60,
+            "health": 40,
+            "energy": 2,
+            "attack": 10,
+            "gnaw": 30,
             "sleep": 2
         }
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
             "name": "Pikachu",
-            "health": 100,
-            "energy": 3,
-            "attack": 20,
-            "gnaw": 60,
+            "health": 40,
+            "energy": 2,
+            "attack": 10,
+            "gnaw": 30,
             "sleep": 2
         }
     
+def get_trainer(trainer_name):
+    if trainer_name.lower() == "Irida":
+        return {
+            "name": "Irida",
+            "healing": 40
+        }
+
+    
 
 
-def Single_player(chosen_pokemon):
+        
+
+    
+
+
+def Single_player(chosen_pokemon, chosen_trainer):
     player = get_player(chosen_pokemon)
+    trainer = get_trainer(chosen_trainer)
     rival = get_rival()
     print(f"Your rival is {rival['name']}!")
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
-        action = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴): ").strip().lower()
+        action = input("What do you want to do? (attack🗡️/gnaw💫/sleep😴/trainer_skill💡): ").strip().lower()
         if action == "attack":
             rival["health"] -= player["attack"]
             print(f"You attacked! Rival's health is now {rival['health']}")
@@ -112,6 +131,10 @@ def Single_player(chosen_pokemon):
                 print(f"You used energy! Your energy is now {player['energy']}")
             else:
                 print("Not enough energy")
+        elif action == "trainer_skill":
+            print("Using Skill")
+            player["health"] += trainer["healing"]
+            print(f"Trainer uses skill! Your health is now {player['health']}")
 
         else:
             print("Unknown action.")
@@ -215,8 +238,10 @@ def Main():
             chosen_pokemon = InputChoose_Pokemon()
         elif menu_option == "2":
             chosen_pokemon2 = InputChoose_Pokemon2()
+        elif menu_option == "3":
+            chosen_trainer = InputChoose_trainer()
         elif menu_option == "S":
-            Single_player(chosen_pokemon)
+            Single_player(chosen_pokemon,chosen_trainer)
         elif menu_option == "M":
             Multiplayer(chosen_pokemon, chosen_pokemon2)
         elif menu_option == "B":
