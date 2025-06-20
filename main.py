@@ -56,8 +56,8 @@ def get_player(pokemon_name):
             "name": "Pikachu",
             "health": 40,
             "energy": 2,
-            "gnaw": 10,
-            "thunder_jolt": 30,
+            "attack": 10,
+            "enchanced attack": 30,
             "sleep": 2
         }
     if pokemon_name.lower() == "charmander":
@@ -65,8 +65,8 @@ def get_player(pokemon_name):
                "name": "Charmander",
                 "health": 50,
                 "energy": 2,
-                "Scratch": 10,
-                "Ember": 30,
+                "attack": 10,
+                "enchanced attack": 30,
                 "sleep": 2
         }
 
@@ -78,7 +78,7 @@ def get_player(pokemon_name):
             "health": 40,
             "energy": 2,
             "attack": 10,
-            "thunder_jolt": 30,
+            "enchanced attack": 30,
             "sleep": 2
         }
     
@@ -89,8 +89,8 @@ def get_player2(pokemon_name2):
             "name": "Pikachu",
             "health": 40,
             "energy": 2,
-            "gnaw": 10,
-            "thunder_jolt": 30,
+            "attack": 10,
+            "enchanced attack": 30,
             "sleep": 2
         }
     else:
@@ -99,8 +99,8 @@ def get_player2(pokemon_name2):
             "name": "Pikachu",
             "health": 40,
             "energy": 2,
-            "gnaw": 10,
-            "thunder_jolt": 30,
+            "attack": 10,
+            "enchanced attack": 30,
             "sleep": 2
         }
     
