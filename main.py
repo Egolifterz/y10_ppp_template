@@ -60,13 +60,24 @@ def get_player(pokemon_name):
             "thunder_jolt": 30,
             "sleep": 2
         }
+    if pokemon_name.lower() == "charmander":
+        return {
+               "name": "Charmander",
+                "health": 50,
+                "energy": 2,
+                "Scratch": 10,
+                "Ember": 30,
+                "sleep": 2
+        }
+
+
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
             "name": "Pikachu",
             "health": 40,
             "energy": 2,
-            "gnaw": 10,
+            "attack": 10,
             "thunder_jolt": 30,
             "sleep": 2
         }
