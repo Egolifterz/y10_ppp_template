@@ -110,7 +110,7 @@ def get_trainer(trainer_name):
 
 def Single_player(chosen_pokemon, chosen_trainer):
     player = get_player(chosen_pokemon)
-    trainer = get_trainer(chosen_trainer)
+    trainer = get_trainer(chosen_trainer) # procedures return None   ... whereas functinos must RETURN a result
     rival = get_rival()
     print(f"Your rival is {rival['name']}!")
     while player["health"] > 0 and rival["health"] > 0:
