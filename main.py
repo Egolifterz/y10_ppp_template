@@ -132,7 +132,6 @@ def Single_player(chosen_pokemon, chosen_trainer):
             else:
                 print("Not enough energy")
         elif action == "trainer_skill":
-            print("Using Skill")
             player["health"] += trainer["healing"]
             print(f"Trainer uses skill! Your health is now {player['health']}")
 
