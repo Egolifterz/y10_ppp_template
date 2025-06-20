@@ -99,9 +99,9 @@ def get_player2(pokemon_name2):
 
 
 
-    
+
 def get_trainer(trainer_name):
-    if trainer_name.lower() == "Irida":
+    if trainer_name.lower() == "irida":
         return {
             "name": "Irida",
             "healing": 40
