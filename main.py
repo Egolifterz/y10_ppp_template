@@ -93,6 +93,13 @@ def get_player2(pokemon_name2):
             "sleep": 2
         }
     
+
+
+
+
+
+
+    
 def get_trainer(trainer_name):
     if trainer_name.lower() == "Irida":
         return {
