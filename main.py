@@ -122,7 +122,7 @@ def Single_player(chosen_pokemon, chosen_trainer):
     print(f"Your rival is {rival['name']}!")
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
-        action = input("What do you want to do? (attack🗡️/enchanced_attack💫/sleep😴/trainer_skill💡): ").strip().lower()
+        action = input("What do you want to do? (attack🗡️/enchanced attack💫/sleep😴/trainer skill💡): ").strip().lower()
         if action == "attack":
             rival["health"] -= player["gnaw"]
             print(f"You attacked! Rival's health is now {rival['health']}")
@@ -130,7 +130,7 @@ def Single_player(chosen_pokemon, chosen_trainer):
             print("Gained energy for sleeping")
             player["energy"] += player["sleep"]
             print(f"You slept! Your energy is now {player['energy']}")
-        elif action == "enchanced_attack":
+        elif action == "enchanced attack":
             if player["energy"] > 0:  # Fixed the condition to check player's energy
                 rival["health"] -= player["thunder_jolt"]
                 player["energy"] -= 1
@@ -138,7 +138,7 @@ def Single_player(chosen_pokemon, chosen_trainer):
                 print(f"You used energy! Your energy is now {player['energy']}")
             else:
                 print("Not enough energy")
-        elif action == "trainer_skill":
+        elif action == "trainer skill":
             player["health"] += trainer["healing"]
             print(f"Trainer uses skill! Your health is now {player['health']}")
 
