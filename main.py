@@ -1,5 +1,6 @@
-import pokemon
+
 import random
+
 
 
 print("""
@@ -28,6 +29,9 @@ def DisplayMenu():
     print("Q Quit")
     print()
 
+
+
+
 def InputChoose_Pokemon():
     print("Randomising Energy Cards...")
     print("2 Colourless Energy Cards gained")
@@ -36,6 +40,9 @@ def InputChoose_Pokemon():
     return choose_pokemon
 
 def InputChoose_Pokemon2():
+    print("Randomising Energy Cards...")
+    print("2 Colourless Energy Cards gained")
+    print("Randomising Pokemon Cards...")
     choose_pokemon2 = input("Please Choose your Pokemon (Pikachu, Charmander): ")
     return choose_pokemon2
 
