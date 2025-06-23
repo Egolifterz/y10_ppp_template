@@ -182,7 +182,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
                 print(f"You slept! Your energy is now {player['energy']}")
                 turn += 1
             elif action1 == "enchanced_attack":
-                if player["energy"] > 0:  # Fixed the condition to check player's energy
+                if player["energy"] > 0:  
                     player2["health"] -= player["enchanced attack"]
                     player["energy"] -= 1
                     print(f"You attacked! Rival's health is now {player2['health']}")
