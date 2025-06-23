@@ -36,7 +36,7 @@ def InputChoose_Pokemon():
     print("Randomising Energy Cards...")
     print("2 Colourless Energy Cards gained")
     print("Randomising Pokemon Cards...")
-    choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander, Sprigatito): ")
+    choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander, Sprigatito, ): ")
     return choose_pokemon
 
 def InputChoose_Pokemon2():
