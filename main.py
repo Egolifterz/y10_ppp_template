@@ -33,7 +33,7 @@ def InputChoose_Pokemon():
     return choose_pokemon
 
 def InputChoose_Pokemon2():
-    choose_pokemon2 = input("Please Choose your Pokemon (Pikachu): ")
+    choose_pokemon2 = input("Please Choose your Pokemon (Pikachu, Charmander): ")
     return choose_pokemon2
 
 def InputChoose_trainer():
@@ -82,6 +82,8 @@ def get_player(pokemon_name):
             "sleep": 2
         }
     
+
+        
 def get_player2(pokemon_name2):
  
     if pokemon_name2.lower() == "pikachu":
@@ -93,6 +95,17 @@ def get_player2(pokemon_name2):
             "enchanced attack": 30,
             "sleep": 2
         }
+    if pokemon_name2.lower() == "charmander":
+        return {
+               "name": "Charmander",
+                "health": 50,
+                "energy": 2,
+                "attack": 10,
+                "enchanced attack": 30,
+                "sleep": 2
+        }
+
+
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
@@ -104,6 +117,10 @@ def get_player2(pokemon_name2):
             "sleep": 2
         }
     
+
+        
+    
+
 
 
 
