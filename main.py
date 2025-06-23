@@ -29,6 +29,8 @@ def DisplayMenu():
     print()
 
 def InputChoose_Pokemon():
+    print("Randomising Energy Cards...")
+    print("2 ")
     choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander, Sprigatito): ")
     return choose_pokemon
 
