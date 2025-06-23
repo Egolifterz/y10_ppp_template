@@ -176,7 +176,8 @@ def Single_player(chosen_pokemon, chosen_trainer):
             rival["health"] -= player["attack"]
             print(f"You attacked! Rival's health is now {rival['health']}")
         elif action == "sleep":
-            print("Gained energy for sleeping")
+            print("Gained ENERGY CARDS for sleeping")
+            print("Randomising ENERGY")
             player["energy"] += player["sleep"]
             print(f"You slept! Your energy is now {player['energy']}")
         elif action == "enchanced attack":
