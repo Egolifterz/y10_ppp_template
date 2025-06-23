@@ -196,7 +196,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
             turn += 1
 
         if player2["health"] > 0 and turn == 2:
-            action2 = input("What do you want to do, Player 2? (attack🗡️/enchanced_attack💫/sleep😴): ").strip().lower()
+            action2 = input("What do you want to do, Player 2? (attack🗡️/enchanced attack💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player["health"] -= player2["attack"]
                 print(f"You attacked! Player 1's health is now {player['health']}")
@@ -206,7 +206,7 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
                 player["energy"] += player2["sleep"]
                 print(f"You slept! Your energy is now {player2['energy']}")
                 turn -= 1
-            elif action2 == "enchanced_attack":
+            elif action2 == "enchanced attack":
                 if player2["energy"] > 0:  # Fixed the condition to check player's energy
                     player["health"] -= player2["enchanced attack"]
                     player2["energy"] -= 1
