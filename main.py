@@ -69,6 +69,17 @@ def get_player(pokemon_name):
                 "enchanced attack": 30,
                 "sleep": 2
         }
+    
+    if pokemon_name.lower() == "sprigatito":
+        return {
+            "name": "Sprigatito",
+             "health": 70,
+             "energy": 2,
+             "attack": 10,
+             "healing": 10,
+             "sleep": 2
+            
+        }
 
 
     else:
