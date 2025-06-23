@@ -29,7 +29,7 @@ def DisplayMenu():
     print()
 
 def InputChoose_Pokemon():
-    choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander): ")
+    choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander, Sprigatito): ")
     return choose_pokemon
 
 def InputChoose_Pokemon2():
