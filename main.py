@@ -1,7 +1,4 @@
-
 import random
-
-
 
 print("""
                                  ,'\ 
@@ -17,7 +14,6 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
         \_.-'       |__|    `-._ |              '-.|     '-.| |   | 
                                 `'                            '-._| """)
 
-
 def DisplayMenu():
     print()
     print("1 Choose First Pokemon")
@@ -29,25 +25,20 @@ def DisplayMenu():
     print("Q Quit")
     print()
 
-
-
-
 def InputChoose_Pokemon():
     print("Randomising Energy Cards...")
     print("2 Colourless Energy Cards gained")
-    print("Randomising Pokemon Cards...")
     choose_pokemon = input("Please Choose your Pokemon (Pikachu, Charmander, Sprigatito, Smoliv, Growlithe): ")
     return choose_pokemon
 
 def InputChoose_Pokemon2():
     print("Randomising Energy Cards...")
     print("2 Colourless Energy Cards gained")
-    print("Randomising Pokemon Cards...")
     choose_pokemon2 = input("Please Choose your Pokemon (Pikachu, Charmander): ")
     return choose_pokemon2
 
 def InputChoose_trainer():
-    choose_trainer = input("Please choose your trainer (Irida)")
+    choose_trainer = input("Please choose your trainer (Irida): ")
     return choose_trainer
 
 def get_rival():
@@ -60,7 +51,6 @@ def get_rival():
     }
 
 def get_player(pokemon_name):
- 
     if pokemon_name.lower() == "pikachu":
         return {
             "name": "Pikachu",
@@ -72,26 +62,22 @@ def get_player(pokemon_name):
         }
     if pokemon_name.lower() == "charmander":
         return {
-               "name": "Charmander",
-                "health": 50,
-                "energy": 2,
-                "attack": 10,
-                "enchanced attack": 30,
-                "sleep": 2
+            "name": "Charmander",
+            "health": 50,
+            "energy": 2,
+            "attack": 10,
+            "enchanced attack": 30,
+            "sleep": 2
         }
-    
     if pokemon_name.lower() == "sprigatito":
         return {
             "name": "Sprigatito",
-             "health": 70,
-             "energy": 2,
-             "attack": 10,
-             "healing": 10,
-             "sleep": 2
-            
+            "health": 70,
+            "energy": 2,
+            "attack": 10,
+            "healing": 10,
+            "sleep": 2
         }
-
-
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
@@ -102,11 +88,8 @@ def get_player(pokemon_name):
             "enchanced attack": 30,
             "sleep": 2
         }
-    
 
-        
 def get_player2(pokemon_name2):
- 
     if pokemon_name2.lower() == "pikachu":
         return {
             "name": "Pikachu",
@@ -118,15 +101,13 @@ def get_player2(pokemon_name2):
         }
     if pokemon_name2.lower() == "charmander":
         return {
-               "name": "Charmander",
-                "health": 50,
-                "energy": 2,
-                "attack": 10,
-                "enchanced attack": 30,
-                "sleep": 2
+            "name": "Charmander",
+            "health": 50,
+            "energy": 2,
+            "attack": 10,
+            "enchanced attack": 30,
+            "sleep": 2
         }
-
-
     else:
         print("Unknown Pokemon, defaulting to Pikachu.")
         return {
@@ -137,17 +118,6 @@ def get_player2(pokemon_name2):
             "enchanced attack": 30,
             "sleep": 2
         }
-    
-
-        
-    
-
-
-
-
-
-
-
 
 def get_trainer(trainer_name):
     if trainer_name.lower() == "irida":
@@ -160,22 +130,17 @@ def get_trainer(trainer_name):
         return {
             "name": "Andre",
             "healing": 40,
-
-
         }
 
-    
-
-
 def Single_player(chosen_pokemon, chosen_trainer):
+    if chosen_trainer is None:
+        print("Error: You must choose a trainer before starting the game.")
+        return
     player = get_player(chosen_pokemon)
     trainer = get_trainer(chosen_trainer)
     rival = get_rival()
     
     print(f"Your rival is {rival['name']}!")
-    if chosen_trainer is None:
-        print("choose a trainer bro 🥀")
-    
 
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
@@ -216,52 +181,54 @@ def Single_player(chosen_pokemon, chosen_trainer):
         except KeyError as e:
             print(f"Bro you suck, think carefully before doing something - {e}")
         except Exception as e:
-            print(f"error occured: {e}")
+            print(f"Error occurred: {e}")
 
     if player["health"] > 0:
         print("You win!")
     else:
         print("You lost!")        
 
+def Multiplayer(chosen_pokemon, chosen_pokemon2, chosen_trainer):
+    if chosen_pokemon2 is None:
+        print("Error: You must choose a second Pokémon before starting multiplayer.")
+        return
+    if chosen_trainer is None:
+        print("Error: You must choose a trainer before starting multiplayer.")
+        return
     
-
-
-
-def Multiplayer(chosen_pokemon, chosen_pokemon2):
     player = get_player(chosen_pokemon)
     player2 = get_player2(chosen_pokemon2)
     turn = 1
-    if chosen_pokemon2 is None:
-        print("who are you playing against bro 🥀")
     
     while player["health"] > 0 and player2["health"] > 0:
         if player["health"] > 0 and turn == 1:
             print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
-            action1 = input("What do you want to do? (attack🗡️/enchanced_attack💫/sleep😴): ").strip().lower()
+            action1 = input("What do you want to do? (attack🗡️/enchanced attack💫/sleep😴): ").strip().lower()
             if action1 == "attack":
                 player2["health"] -= player["attack"]
                 print(f"You attacked! Player 2's health is now {player2['health']}")
-                turn +=1
+                turn += 1
             elif action1 == "sleep":
                 print("Gained energy for sleeping")
                 player["energy"] += player["sleep"]
                 print(f"You slept! Your energy is now {player['energy']}")
                 turn += 1
-            elif action1 == "enchanced_attack":
+            elif action1 == "enchanced attack":
                 if player["energy"] > 0:  
                     player2["health"] -= player["enchanced attack"]
                     player["energy"] -= 1
-                    print(f"You attacked! Rival's health is now {player2['health']}")
+                    print(f"You attacked! Player 2's health is now {player2['health']}")
                     print(f"You used energy! Your energy is now {player['energy']}")
-                    turn +=1
+                    turn += 1
+                else:
+                    print("Not enough energy.")
+                    turn += 1
             else:
-                print("Not enough energy")
+                print("Unknown action.")
                 turn += 1
-        else:
-            ("Unknown Action.")
-            turn += 1
 
         if player2["health"] > 0 and turn == 2:
+            print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
             action2 = input("What do you want to do, Player 2? (attack🗡️/enchanced attack💫/sleep😴): ").strip().lower()
             if action2 == "attack":
                 player["health"] -= player2["attack"]
@@ -269,51 +236,47 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
                 turn -= 1
             elif action2 == "sleep":
                 print("Gained energy for sleeping, Player 2")
-                player["energy"] += player2["sleep"]
+                player2["energy"] += player2["sleep"]
                 print(f"You slept! Your energy is now {player2['energy']}")
                 turn -= 1
             elif action2 == "enchanced attack":
-                if player2["energy"] > 0:  # Fixed the condition to check player's energy
+                if player2["energy"] > 0:
                     player["health"] -= player2["enchanced attack"]
                     player2["energy"] -= 1
                     print(f"You attacked! Player 1's health is now {player['health']}")
                     print(f"You used energy! Your energy is now {player2['energy']}")
                     turn -= 1
+                else:
+                    print("Not enough energy.")
+                    turn -= 1
             else:
-                print("Not enough energy")
+                print("Unknown action.")
                 turn -= 1
-        else:
-            ("Unknown Action.")
-            turn -= 1
-
 
     if player["health"] > 0:
         print("Player 1 wins")
     else:
         print("Player 2 wins")
 
-
 def buy_cards():
-    
-
     Gatcha = ["Pikachu - Common", "Charmander - Rare", "Isagi - Ultra Rare", "Chigiri - Legendary"]
     print(Gatcha)
     x = random.choice(Gatcha)
     buy = 0
     while buy == 0:
-        purchase = input("would you like to buy a card (Y/N)")
-        if purchase == "Y":
+        purchase = input("Would you like to buy a card (Y/N)? ")
+        if purchase.upper() == "Y":
             print(x)
             buy += 1
-        if purchase == "N":
-            print("damn...")
+        elif purchase.upper() == "N":
+            print("Damn...")
             Main()
-        
-        
 
 def Main():
     menu_option = ""
-    chosen_pokemon = "Pikachu"  # Default
+    chosen_pokemon = None  # Default to None
+    chosen_pokemon2 = None
+    chosen_trainer = None
     while menu_option != "Q":
         DisplayMenu()
         menu_option = input("Enter Option > ").upper()
@@ -324,12 +287,12 @@ def Main():
         elif menu_option == "3":
             chosen_trainer = InputChoose_trainer()
         elif menu_option == "S":
-            Single_player(chosen_pokemon,chosen_trainer)
+            Single_player(chosen_pokemon, chosen_trainer)
         elif menu_option == "M":
-            Multiplayer(chosen_pokemon, chosen_pokemon2)
+            Multiplayer(chosen_pokemon, chosen_pokemon2, chosen_trainer)
         elif menu_option == "B":
             buy_cards()
         elif menu_option == "Q":
-            print("HOW DARE YOU QUIT ON ME YOU FILTHY PESEANT")
+            print("HOW DARE YOU QUIT ON ME YOU FILTHY PEASANT")
 
 Main()
