@@ -167,48 +167,60 @@ def get_trainer(trainer_name):
     
 
 
-        
-
-    
-
-
 def Single_player(chosen_pokemon, chosen_trainer):
     player = get_player(chosen_pokemon)
-    trainer = get_trainer(chosen_trainer) # procedures return None   ... whereas functinos must RETURN a result
+    trainer = get_trainer(chosen_trainer)
     rival = get_rival()
+    
     print(f"Your rival is {rival['name']}!")
+
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
+        
         action = input("What do you want to do? (attack🗡️/enchanced attack💫/sleep😴/trainer skill💡): ").strip().lower()
-        if action == "attack":
-            rival["health"] -= player["attack"]
-            print(f"You attacked! Rival's health is now {rival['health']}")
-        elif action == "sleep":
-            print("Gained ENERGY CARDS for sleeping")
-            print("Randomising ENERGY")
-            player["energy"] += player["sleep"]
-            print(f"You slept! Your energy is now {player['energy']}")
-        elif action == "enchanced attack":
-            if player["energy"] > 0:  # Fixed the condition to check player's energy
-                rival["health"] -= player["enchanced attack"]
-                player["energy"] -= 1
+        
+        try:
+            if action == "attack":
+                rival["health"] -= player["attack"]
                 print(f"You attacked! Rival's health is now {rival['health']}")
-                print(f"You used energy! Your energy is now {player['energy']}")
+                
+            elif action == "sleep":
+                print("Gained ENERGY CARDS for sleeping")
+                print("Randomising ENERGY")
+                player["energy"] += player["sleep"]
+                print(f"You slept! Your energy is now {player['energy']}")
+                
+            elif action == "enchanced attack":
+                if player["energy"] > 0:
+                    rival["health"] -= player["enchanced attack"]
+                    player["energy"] -= 1
+                    print(f"You attacked! Rival's health is now {rival['health']}")
+                    print(f"You used energy! Your energy is now {player['energy']}")
+                else:
+                    print("Not enough energy for enhanced attack.")
+                    
+            elif action == "trainer skill":
+                player["health"] += trainer["healing"]
+                print(f"Trainer uses skill! Your health is now {player['health']}")
+                
             else:
-                print("Not enough energy")
-        elif action == "trainer skill":
-            player["health"] += trainer["healing"]
-            print(f"Trainer uses skill! Your health is now {player['health']}")
+                print("Unknown action.")
+        
+            if rival["health"] > 0:
+                player["health"] -= rival["attack"]
+                print(f"{rival['name']} attacks! Your health is now {player['health']}")
+        
+        except KeyError as e:
+            print(f"Bro you suck, think carefully before doing something - {e}")
+        except Exception as e:
+            print(f"error occured: {e}")
 
-        else:
-            print("Unknown action.")
-        if rival["health"] > 0:
-            player["health"] -= rival["attack"]
-            print(f"Charmander attacks! Your health is now {player['health']}")
     if player["health"] > 0:
         print("You win!")
     else:
-        print("You lost!")
+        print("You lost!")        
+
+    
 
 
 
