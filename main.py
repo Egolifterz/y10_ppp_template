@@ -155,6 +155,14 @@ def get_trainer(trainer_name):
             "name": "Irida",
             "healing": 40
         }
+    else:
+        print("Unknown Trainer, defaulting to Andre")
+        return {
+            "name": "Andre",
+            "healing": 40,
+
+
+        }
 
     
 
