@@ -209,6 +209,7 @@ def Single_player(chosen_pokemon, chosen_trainer):
         print("You win!")
     else:
         print("You lost!")
+    
 
 
 def Multiplayer(chosen_pokemon, chosen_pokemon2):
