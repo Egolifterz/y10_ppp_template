@@ -210,9 +210,6 @@ def Single_player(chosen_pokemon, chosen_trainer):
     else:
         print("You lost!")
 
-    
-
-
 
 
 def Multiplayer(chosen_pokemon, chosen_pokemon2):
@@ -315,6 +312,6 @@ def Main():
         elif menu_option == "B":
             buy_cards()
         elif menu_option == "Q":
-            print("Goodbye!")
+            print("HOW DARE YOU QUIT ON ME YOU FILTHY PESEANT")
 
 Main()
