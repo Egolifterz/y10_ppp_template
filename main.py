@@ -173,6 +173,9 @@ def Single_player(chosen_pokemon, chosen_trainer):
     rival = get_rival()
     
     print(f"Your rival is {rival['name']}!")
+    if chosen_trainer is None:
+        print("choose a trainer bro 🥀")
+    
 
     while player["health"] > 0 and rival["health"] > 0:
         print(f"\nYour Health: {player['health']} | Rival Health: {rival['health']}")
@@ -228,6 +231,9 @@ def Multiplayer(chosen_pokemon, chosen_pokemon2):
     player = get_player(chosen_pokemon)
     player2 = get_player2(chosen_pokemon2)
     turn = 1
+    if chosen_pokemon2 is None:
+        print("who are you playing against bro 🥀")
+    
     while player["health"] > 0 and player2["health"] > 0:
         if player["health"] > 0 and turn == 1:
             print(f"\nPlayer 1 Health: {player['health']} | Player 2 Health: {player2['health']}")
